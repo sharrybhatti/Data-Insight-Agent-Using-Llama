@@ -12,13 +12,13 @@ def generate_basic_insights(data):
     insights['columns'] = data.columns.tolist()
     insights['missing_values'] = data.isnull().sum().to_dict()
     insights['data_types'] = data.dtypes.to_dict()
-    insights['description'] = data.describe(include='all').to_dict()  # Include all data types
+    insights['description'] = data.describe(include='all').to_dict()  
     return insights
 
 # Function to create the report writer agent
 def create_report_writer_agent():
-    llm = OllamaLLM(model="llama3.1")  # Ensure to specify the required model parameters correctly
-    return llm  # Returning the LLM for report generation
+    llm = OllamaLLM(model="llama3.1")  
+    return llm  
 
 # Function to generate a summary report
 def generate_report(llm, insights):
